@@ -25,5 +25,13 @@ export const PostsCollection: CollectionConfig = {
       type: 'upload',
     },
   ],
+  hooks: {
+    afterDelete: [
+      () => ({ foo: 'bar' }),
+      ({ doc }) => {
+        console.dir({ doc }, { depth: null })
+      },
+    ],
+  },
   slug: postsSlug,
 }
